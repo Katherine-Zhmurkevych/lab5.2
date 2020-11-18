@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <cmath>
 using namespace std;
-void S(const double x, const double eps, int& n, double& s);
+double S(const double x, const double eps, int& n, double& s);
 void A(const double x, const int n, double& a);
 int main()
 {
@@ -34,7 +34,7 @@ int main()
 	cout << "-------------------------------------------------" << endl;
 	return 0;
 }
-void S(const double x, const double eps, int& n, double& s)
+double S(const double x, const double eps, int& n, double& s)
 {
 	n = 1.0;
 	double a = x;
@@ -44,6 +44,7 @@ void S(const double x, const double eps, int& n, double& s)
 		A(x, n, a);
 		s += a;
 	} while (abs(x) < 1);
+	return s;
 }
 void A(const double x, const int n, double& a)
 {
